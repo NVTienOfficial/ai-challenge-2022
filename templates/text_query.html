@@ -1,0 +1,33 @@
+{% extends "gallary.html" %}
+{% block query %}
+    <div class="text-center center-block w-100 border p-1">
+        <form method="POST" action="/query">
+            <label for="add_caption"><h4>Try with a custom caption</h4></label>
+            <textarea class='form-control' required="required" style="font-size: large"
+                    id='custom_caption' name='caption' rows="3"
+                    type="text" placeholder="Insert your caption here"></textarea>
+            <input class="m-2" type="submit" value="Submit">
+        </form>
+    </div>
+
+    <div class="container">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-9">
+                    <h2>Text queries</h2>
+                </div>
+                <div class="col-sm-1">
+                    <form action="/clear">
+                        <input class="m-2" type="submit" value="Clear">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div id="list-example" class="list-group" style="height:300px; overflow-y:auto;">
+            {% for caption in captions %}
+                <p class="list-group-item list-group-item-action">{{caption}}</p>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock query %}

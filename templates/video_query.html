@@ -1,0 +1,37 @@
+{% extends "gallary.html" %}
+{% block query %}
+    <h2>Select a video to upload</h2>
+    <p>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+        {% endwith %}
+    </p>
+    <!-- {% if filename %}
+        <div class="container">
+            <video autoplay="autoplay" controls="controls" preload="preload">
+                <source src="{{ url_for('display_video', filename=filename) }}" type="video/mp4"></source>
+            </video>
+        </div>
+    {% endif %} -->
+    <form method="post" action="/videokis" enctype="multipart/form-data">
+        <dl>
+            <p>
+                <input type="file" name="file" autocomplete="off" required>
+            </p>
+        </dl>
+        <p>
+            <input type="submit" value="Upload">
+        </p>
+    </form>
+    {% if filename %}
+        <form method="post" action="/videokis/query">
+            <input type="submit" value="Query">
+        </form>
+    {% endif %}
+{% endblock query %}

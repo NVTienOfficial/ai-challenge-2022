@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block result %}
+<div class="container">
+    <div class="row text-center text-lg-start">
+        {% for name in names %}
+            <div class="col-sm-2 border">
+                <a class="d-block mb-4 h-100" href="#">
+                    <video class="w-100" preload="metadata">
+                        <source src="{{ url_for('get_video', video_id=name) }}" type="video/mp4" />
+                    </video>
+                    <p>{{name}}</p>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock result %}
