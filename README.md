@@ -1,13 +1,18 @@
 # ai-challenge-2022
 
-A web application for Video retrieval tasks (Textual KIS and Video KIS)
+A web application for Video retrieval tasks (Textual KIS and Video KIS).
 
-1. Install libraries
+1. Dataset
+- Dataset used in this project belongs to Ho Chi Minh City AI Challenge 2022.
+- All zip files are stored in zip_resourses folder.
+- Unzipped videos, keyframes, objects (optional), CLIP features (numpy file, optional) are stored in videos, keyframes, objects, CLIP_features respectively.
+
+2. Install libraries
 
 > git clone git+https://github.com/openai/CLIP.git
 
-> pip install flask==2.0.2
+> pip install -r requirements.txt
 
-2. Run app
+3. Run app
 
 > python app.py
